@@ -17,17 +17,22 @@ export const fetchCuratedPhotos = async (page: number) => {
     }
 
     const data = await response.json();
-    const finalPhotos = data.photos.map((photo: Images) => ({
-      id: photo.id,
-      alt: photo.alt,
-      photographer: photo.photographer,
-      src: {
-        medium: photo.src.medium,
-      },
-    }));
+    const finalPhotos = data.photos.map((photo: Images) => {
+      return {
+        id: photo.id,
+        alt: photo.alt,
+        photographer: photo.photographer,
+        src: {
+          medium: photo.src.medium, // Dynamically selecting the size
+          large: photo.src.large,
+          large2x: photo.src.large2x,
+        },
+      };
+    });
+
     return finalPhotos;
   } catch (error) {
     console.error('Error fetching curated photos:', error);
-    return 'Error fetching curated photos';
+    return []; // Return an empty array on error for consistency
   }
 };
