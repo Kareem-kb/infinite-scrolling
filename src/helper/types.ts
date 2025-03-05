@@ -4,5 +4,7 @@ export type Images = {
   photographer?: string;
   src: {
     medium: string;
+    large: string;
+    large2x: string;
   };
 };
