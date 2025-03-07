@@ -1,0 +1,73 @@
+.card {
+  background-color: black;
+  position: relative;
+  width: clamp(300px, 30vw, 400px);
+  height: clamp(200px, 20vw, 300px);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1.5px 1.5px 0px rgba(105, 105, 105, 0.4);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--overlay-bg);
+  opacity: 0; /* Hidden by default */
+  transition: opacity var(--transition-duration) ease-in-out; /* Smooth transition */
+}
+
+.card:hover .overlay {
+  opacity: 0.9; /* Show overlay on hover */
+}
+
+.card h1 {
+  font-size: clamp(1.1rem, calc(2vw + 0.5rem), 1.6rem);
+  margin: 0.5rem 0;
+  font-weight: 800;
+}
+
+.line {
+  width: 35%;
+  height: 2px;
+  background-color: var(--text-color);
+}
+
+.card p {
+  font-size: clamp(0.9rem, calc(1vw + 0.5rem), 1.2rem);
+  font-weight: 400;
+  width: 90%;
+  margin-bottom: 1.4rem;
+}
+
+.favoriteButton {
+  border-radius: 3rem;
+  background-color: transparent;
+  border: 0.1rem solid;
+  color: var(--text-color);
+  font-size: clamp(0.9rem, calc(1vw + 0.2rem), 1.2rem);
+  font-weight: bold;
+  padding: clamp(1rem, calc(1vw + 0.2rem), 0.8rem);
+  transition: all var(--transition-duration) ease-in-out; /* Smooth hover effect */
+}
+
+.favoriteButton:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.favoriteButton:active {
+  transform: scale(0.9); /* Press effect */
+}
