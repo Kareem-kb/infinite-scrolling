@@ -1,3 +1,4 @@
+import styles from '../styles/gridCard.module.css';
 import { forwardRef, useState, useEffect, useCallback } from 'react';
 import { Images } from '../helper/types';
 
@@ -35,22 +36,15 @@ const ImageCard = forwardRef<HTMLLIElement, ImageCardProps>(
     }, [image]);
 
     return (
-      <li ref={ref} aria-labelledby={`img-${image.id}-label`}>
-        <h2 id={`img-${image.id}-label`}>
-          {image.photographer}
-          <span className="sr-only">&apos;s photograph</span>
-        </h2>
+      <li
+        ref={ref}
+        aria-labelledby={`img-${image.id}-label`}
+        className={styles.card}
+      >
         <picture>
-          {/* Desktop (1024px+) */}
           <source media="(min-width: 1024px)" srcSet={image.src.large2x} />
-
-          {/* Tablet (768px-1023px) */}
           <source media="(min-width: 768px)" srcSet={image.src.large} />
-
-          {/* Mobile (<768px) */}
           <source media="(max-width: 767px)" srcSet={image.src.medium} />
-
-          {/* Fallback */}
           <img
             src={image.src.medium}
             alt={image.alt}
@@ -59,13 +53,20 @@ const ImageCard = forwardRef<HTMLLIElement, ImageCardProps>(
           />
         </picture>
 
-        <button
-          onClick={handleLike}
-          aria-label={`${isFavorite ? 'Remove from' : 'Add to'} favorites`}
-          className="favorite-button"
-        >
-          <span aria-hidden="true">{isFavorite ? '❤️' : '♡'}</span>
-        </button>
+        <div className={styles.overlay}>
+          <h1>{image.photographer}</h1>
+          <div className={styles.line} />
+          <p>{image.alt}</p>
+          <button
+            onClick={handleLike}
+            aria-label={`${isFavorite ? 'Remove from' : 'Add to'} favorites`}
+            className={styles.favoriteButton}
+          >
+            <span aria-hidden="true">
+              {isFavorite ? 'Favored' : 'Favorite'}
+            </span>
+          </button>
+        </div>
       </li>
     );
   }

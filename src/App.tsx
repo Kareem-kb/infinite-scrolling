@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     <div className="gallery">
-      <h1>Home page</h1>
+      <h1 className="title"> Infinite Scroll</h1>
       <ul>
         {data.map((image, index) => (
           <ImageCard
