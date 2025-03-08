@@ -33,6 +33,6 @@ export const fetchCuratedPhotos = async (page: number) => {
     return finalPhotos;
   } catch (error) {
     console.error('Error fetching curated photos:', error);
-    return []; // Return an empty array on error for consistency
+    throw new Error('API request failed');
   }
 };
