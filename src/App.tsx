@@ -20,6 +20,15 @@ const App = () => {
     }
   }, [initialData]);
 
+  // Cleanup the observer on unmount
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   // Load more images by fetching when the user scrolls to the bottom of the page
   const loadMoreImages = useCallback(async () => {
     if (loading) return;
