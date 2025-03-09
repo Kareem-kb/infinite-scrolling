@@ -11,7 +11,6 @@
 .card img {
   width: 100%;
   height: auto;
-  object-fit: cover;
 }
 
 .card .overlay {

@@ -23,7 +23,7 @@ export const fetchCuratedPhotos = async (page: number) => {
         alt: photo.alt,
         photographer: photo.photographer,
         src: {
-          medium: photo.src.medium, // Dynamically selecting the size
+          medium: photo.src.medium,
           large: photo.src.large,
           large2x: photo.src.large2x,
         },

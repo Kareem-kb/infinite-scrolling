@@ -1,0 +1,30 @@
+.splashScreen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--primary-color);
+  color: white;
+  transition: opacity 2.3s ease-in-out;
+  z-index: 1000;
+  font-size: clamp(1rem, calc(2vw + 0.5rem), 1.4rem);
+}
+
+.splashScreen.fadeOut {
+  opacity: 0;
+}
+
+.zoomOut {
+  animation: zoomOut 3s ease-out forwards;
+  transition: opacity 0.9s ease-in-out;
+  opacity: 0;
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(100); /* Adjusted to scale up */
+  }
+}
