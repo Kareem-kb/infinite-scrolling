@@ -1,5 +1,6 @@
 import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { fetchCuratedPhotos } from '../src/api/fetchImages';
+import '@testing-library/jest-dom';
 import { Images } from '../src/helper/types';
 
 const BEFORE_ALL_TIMEOUT = 30000;
@@ -16,8 +17,8 @@ describe('FetchCuratedPhotos API', () => {
     expect(Array.isArray(response)).toBe(true);
   });
 
-  test('Should have at least one photo in the response', () => {
-    expect(response.length).toBeGreaterThan(0);
+  test('Should have 10 photos in the response', () => {
+    expect(response.length).toBe(10);
   });
 
   test('Each photo should have required properties', () => {

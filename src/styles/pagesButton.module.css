@@ -1,55 +1,56 @@
 /* pagesButton.module.css */
 
 .container {
-    display: flex;
-    gap: 1rem;
-    padding: 0.5rem;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .button {
-    all: unset;
-    cursor: pointer;
-  }
-  
-  .buttonContent {
-    display: grid;
-    grid-template-columns: auto 0fr;
-    align-items: center;
-    gap: 0.5rem;
-    transition: grid-template-columns 0.4s ease;
-  }
-  
-  .button:hover .buttonContent {
-    grid-template-columns: auto 1fr;
-  }
-  
-  .svgIcon {
-    width: 40px;
-    height: 40px;
-    stroke: #666; /* Default gray */
-    transition: stroke 0.3s ease;
-  }
-  
-  .buttonText {
-    overflow: hidden;
-    opacity: 0;
-    color: #666; /* Default gray */
-    transition: 
-      opacity 0.3s 0.1s ease,
-      transform 0.3s 0.1s ease;
-    transform: translateX(-10%);
-  }
-  
-  .button:hover .buttonText {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  /* Active state */
-  .button.active .svgIcon,
-  .button.active .buttonText {
-    stroke: var( --primary-color); /* Green */
-    color: var( --primary-color); /* Green */
-  }
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  all: unset;
+  cursor: pointer;
+}
+
+.buttonContent {
+  display: grid;
+  grid-template-columns: auto 0fr;
+  align-items: center;
+  gap: 0.5rem;
+  transition: grid-template-columns 0.4s ease;
+}
+
+.button:hover .buttonContent {
+  grid-template-columns: auto 1fr;
+}
+
+.svgIcon {
+  width: 40px;
+  height: 40px;
+  stroke: #666; /* Default gray */
+  transition: stroke 0.3s ease;
+}
+
+.buttonText {
+  overflow: hidden;
+  font-weight: 700;
+  opacity: 0;
+  color: #666; /* Default gray */
+  transition:
+    opacity 0.3s 0.1s ease,
+    transform 0.3s 0.1s ease;
+  transform: translateX(-10%);
+}
+
+.button:hover .buttonText {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Active state */
+.button.active .svgIcon,
+.button.active .buttonText {
+  stroke: var(--primary-color); /* Green */
+  color: var(--primary-color); /* Green */
+}

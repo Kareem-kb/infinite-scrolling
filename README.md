@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# **📸 Vinted Academy Infinite Scroll**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Infinite Scroll Image Gallery**! This project fetches images from the Pexels API and is a responsive web application that allows users to explore curated images with infinite scrolling and save their favorite picks. Built with **React**, **TypeScript**, **Vite**, and styled with modern CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **✨ Features**
+- 🌟 **Infinite Scrolling**: Seamlessly load more images as you scroll down.
+- ❤️ **Favorite Images**: Save your favorite images to localStorage and manage them easily.
+- 📱 **Responsive Design**: Works beautifully on all screen sizes.
+- ⚡ **Optimized Performance**: Built with Vite for fast development and production builds.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## **🛠️ Tech Stack**
+- **Frontend**: React 19 + TypeScript
+- **Styling**: Modern CSS (CSS Modules)
+- **Backend API**: Pexels API
+- **Build Tool**: Vite
+- **Testing**: Vitest + React Testing Library
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## **🚀 How to Run the Project**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### **Step 1: Clone the Repository**
+- git clone https://github.com/vinted-hw/academy-web-homework-Kareem-kb
+- cd academy-web-homework-Kareem-kb
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### **Step 2: Install Dependencies**
+- npm install
+
+### **Step 3: Set Up Environment Variables**
+Create a `.env` file in the root of your project and add your Pexels API key:
+- VITE_PEXELS_API=your_api_key_here
+
+### **Step 4: Start the Development Server**
+- npm run dev
+- The app should be available at `http://localhost:5173`, provided nothing else is running on that port.
+
+---
+
+## **🧪 Testing**
+
+I have implemented tests to ensure everything works as expected!
+
+### To Run Tests:
+- npm run test Or for a more visual testing experience npm run test:ui
+
+### What We Test:
+1. 🖼️ Rendering of images and titles.
+2. 💾 Correct handling of favorites (add/remove).
+3. 🔄 Proper infinite scrolling behavior.
+4. 🧹 Cleanup of resources like IntersectionObserver.
+
+---
+
+## **✅ Completed Merges**
+
+Here are the branches we worked on and merged into `main`:
+
+1. `fetch-scroll`  
+   - Implemented fetching data from the Pexels API and infinite scrolling using IntersectionObserver.
+
+2. `responsive-and-favoriting-images`  
+   - Added lazy loading for images based on screen size and implemented functionality to save favorite images to localStorage.
+
+3. `styling-ui`  
+   - Styled all elements in the project using CSS Modules for a clean, modular design.
+
+4. `testing`  
+   - Created and successfully passed tests for all core functionalities of the project.
+
+5. `bonus-features`  
+   - Added a splash screen and a favorites page, complete with their respective styles.
+
+
+
+
+
+

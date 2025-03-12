@@ -13,7 +13,7 @@ const SplashScreen = ({ onLoadingComplete }: SplashScreenProps) => {
   useEffect(() => {
     const container = containerRef.current;
     const textContainer = textContainerRef.current;
-    
+
     if (!container || !textContainer) return;
 
     // Start both animations after 0.5s

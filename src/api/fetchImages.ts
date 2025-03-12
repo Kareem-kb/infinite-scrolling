@@ -6,8 +6,7 @@ export const fetchCuratedPhotos = async (page: number) => {
       `https://api.pexels.com/v1/curated?per_page=10&page=${page}`,
       {
         headers: {
-          Authorization:
-            'FDT9mnj7XAm7kE4QLk48YQZZXbfrBpz5oCMj7L0g8c6ogNf4SVeiugSi',
+          Authorization: import.meta.env.VITE_PEXELS_API, // Updated variable name
         },
       }
     );
