@@ -11,8 +11,8 @@ import FavoriteImages from './components/favoImages';
 // main app component
 const App = () => {
   const [step, setStep] = useState(1);
-  const [showSplash, setShowSplash] = useState(true)
-   const initialData = useData();
+  const [showSplash, setShowSplash] = useState(true);
+  const initialData = useData();
   const [data, setData] = useState<Images[]>(initialData || []);
   const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const App = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-     setTimeout(() => {
+    setTimeout(() => {
       setShowSplash(false);
       localStorage.setItem('showSplash', 'true');
     }, 2500); // Show splash screen for 2 seconds
@@ -29,7 +29,6 @@ const App = () => {
   const completeSplash = useCallback(() => {
     setShowSplash(false);
   }, [setShowSplash]);
-  
 
   useEffect(() => {
     if (initialData && initialData.length > 0) {
@@ -77,28 +76,27 @@ const App = () => {
   );
 
   return (
-    <>  
-    {showSplash && <SplashScreen onLoadingComplete={completeSplash} />}
-    <div className="gallery">
-    <PagesButton currentPage={step} onPageChange={handlePageChange} />
-    {step === 1 && (
-   <ul>
-        {data.map((image, index) => (
-          <ImageCard
-            // skipcq: JS-0437
-            key={index}
-            image={image}
-            ref={index === data.length - 1 ? lastImageRef : null}
-          />
-        ))}
-      </ul> 
-    )} 
-    {step === 2 && (
-      <FavoriteImages/>
-    )}
-      {loading && <Loader />}
-    </div>
-    </>)
+    <>
+      {showSplash && <SplashScreen onLoadingComplete={completeSplash} />}
+      <div className="gallery">
+        <PagesButton currentPage={step} onPageChange={handlePageChange} />
+        {step === 1 && (
+          <ul>
+            {data.map((image, index) => (
+              <ImageCard
+                // skipcq: JS-0437
+                key={index}
+                image={image}
+                ref={index === data.length - 1 ? lastImageRef : null}
+              />
+            ))}
+          </ul>
+        )}
+        {step === 2 && <FavoriteImages />}
+        {loading && <Loader />}
+      </div>
+    </>
+  );
 };
 
 export default App;

@@ -17,7 +17,9 @@ const FavoriteImages = () => {
 
   // Remove favorite image
   const handleRemoveFavorite = (imageId: string) => {
-    const updatedFavorites = favorites.filter((image) => image.id !== Number(imageId));
+    const updatedFavorites = favorites.filter(
+      (image) => image.id !== Number(imageId)
+    );
     setFavorites(updatedFavorites);
     localStorage.setItem('favort', JSON.stringify(updatedFavorites));
   };
@@ -25,15 +27,16 @@ const FavoriteImages = () => {
   return (
     <div className={styles.favoriteImagesContainer}>
       {favorites.length === 0 ? (
-        <p className={styles.noFavoritesMessage}>
-          No favorite images yet
-        </p>
+        <p className={styles.noFavoritesMessage}>No favorite images yet</p>
       ) : (
         <ul className={styles.favoriteImagesList}>
           {favorites.map((image) => (
             <li key={image.id} className={styles.favoriteImageItem}>
               <picture>
-                <source media="(min-width: 1024px)" srcSet={image.src.large2x} />
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet={image.src.large2x}
+                />
                 <source media="(min-width: 768px)" srcSet={image.src.large} />
                 <source media="(max-width: 767px)" srcSet={image.src.medium} />
                 <img

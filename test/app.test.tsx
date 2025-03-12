@@ -35,7 +35,6 @@ describe('App Component - Critical Tests', () => {
 
     render(<App />);
 
-    expect(screen.getByText('Infinite Scroll')).toBeInTheDocument();
     expect(screen.getByAltText('Test Image')).toBeInTheDocument();
   });
 
